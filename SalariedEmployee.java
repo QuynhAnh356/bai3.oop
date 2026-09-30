@@ -4,34 +4,17 @@
 /****************/
 package payroll;
 
-/**
- * Lớp đại diện cho nhân viên hưởng lương cố định theo tháng (SalariedEmployee).
- * Thu nhập bao gồm lương tháng cố định, phụ cấp trách nhiệm và khoản thưởng.
- */
+
 public class SalariedEmployee extends Employee {
  private double monthlySalary;
  private double responsibilityAllowance;
 
- /**
- * Constructor rút gọn: Nhận thông tin cơ bản và lương tháng, phụ cấp mặc định = 0.
- * 
- * @param employeeId Mã nhân sự.
- * @param fullName Họ tên nhân sự.
- * @param monthlySalary Lương cố định tháng (>= 0).
- */
+
  public SalariedEmployee(String employeeId, String fullName, double monthlySalary) {
  this(employeeId, fullName, "Unassigned", monthlySalary, 0.0);
  }
 
- /**
- * Constructor đầy đủ thông tin của nhân viên hưởng lương cố định.
- * 
- * @param employeeId Mã nhân sự.
- * @param fullName Họ tên nhân sự.
- * @param department Phòng ban công tác.
- * @param monthlySalary Lương cố định tháng (>= 0).
- * @param responsibilityAllowance Phụ cấp trách nhiệm (>= 0).
- */
+
  public SalariedEmployee(String employeeId, String fullName, String department,
  double monthlySalary, double responsibilityAllowance) {
  super(employeeId, fullName, department);
