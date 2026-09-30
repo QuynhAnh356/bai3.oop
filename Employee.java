@@ -8,10 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * Lớp trừu tượng đại diện cho một nhân sự trong doanh nghiệp.
- * Định nghĩa các thuộc tính và hành vi chung cho mọi loại nhân sự.
- */
+
 public abstract class Employee {
  private String employeeId;
  private String fullName;
@@ -19,20 +16,12 @@ public abstract class Employee {
  private double monthlyBonus;
  private final List<BonusRecord> bonusHistory = new ArrayList<>();
 
- /**
- * Constructor rút gọn: Sử dụng giá trị phòng ban mặc định là "Unassigned" và thưởng = 0.
- * @param employeeId Mã nhân sự (không được rỗng).
- * @param fullName Họ tên nhân sự (không được rỗng).
- */
+
  public Employee(String employeeId, String fullName) {
  this(employeeId, fullName, "Unassigned");
  }
 
- /**
- * @param employeeId Mã nhân sự (không được rỗng).
- * @param fullName Họ tên nhân sự (không được rỗng).
- * @param department Phòng ban công tác (không được rỗng).
- */
+
  public Employee(String employeeId, String fullName, String department) {
  setEmployeeId(employeeId);
  setFullName(fullName);
