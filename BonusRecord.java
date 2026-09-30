@@ -16,9 +16,7 @@ public class BonusRecord {
  private final String reason;
  private final LocalDateTime timestamp;
 
- /**
- * Khởi tạo bản ghi thưởng với số tiền và lý do.
- * 
+ /** 
  * @param amount Số tiền thưởng (phải > 0).
  * @param reason Lý do thưởng (không được rỗng).
  */
