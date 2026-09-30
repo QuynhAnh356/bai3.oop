@@ -7,19 +7,12 @@ package payroll;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-/**
- * Lớp biểu diễn một bản ghi thưởng (Bonus Record) trong lịch sử thưởng của nhân viên.
- * Giúp quản lý minh bạch các lần cộng thưởng thay vì chỉ lưu tổng số tiền.
- */
+
 public class BonusRecord {
  private final double amount;
  private final String reason;
  private final LocalDateTime timestamp;
 
- /** 
- * @param amount Số tiền thưởng (phải > 0).
- * @param reason Lý do thưởng (không được rỗng).
- */
  public BonusRecord(double amount, String reason) {
  if (amount <= 0) {
  throw new IllegalArgumentException("Số tiền thưởng phải lớn hơn 0. Giá trị nhận được: " + amount);
