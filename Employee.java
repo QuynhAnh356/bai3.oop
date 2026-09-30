@@ -21,8 +21,6 @@ public abstract class Employee {
 
  /**
  * Constructor rút gọn: Sử dụng giá trị phòng ban mặc định là "Unassigned" và thưởng = 0.
- * Áp dụng kỹ thuật constructor ủy quyền (Constructor Chaining) để tránh trùng lặp mã kiểm tra.
- * 
  * @param employeeId Mã nhân sự (không được rỗng).
  * @param fullName Họ tên nhân sự (không được rỗng).
  */
@@ -31,8 +29,6 @@ public abstract class Employee {
  }
 
  /**
- * Constructor đầy đủ thông tin cơ bản của một nhân sự.
- * 
  * @param employeeId Mã nhân sự (không được rỗng).
  * @param fullName Họ tên nhân sự (không được rỗng).
  * @param department Phòng ban công tác (không được rỗng).
