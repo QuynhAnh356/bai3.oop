@@ -4,10 +4,6 @@
 /****************/
 package payroll;
 
-/**
- * Lớp đại diện cho nhân viên hưởng lương theo giờ làm việc (HourlyEmployee).
- * Có chế độ tính làm thêm giờ (Overtime) với hệ số 1.5 khi số giờ làm vượt quá 160 giờ.
- */
 public class HourlyEmployee extends Employee {
  public static final double STANDARD_HOURS_LIMIT = 160.0;
  public static final double OVERTIME_RATE_MULTIPLIER = 1.5;
@@ -16,27 +12,10 @@ public class HourlyEmployee extends Employee {
  private double hourlyRate;
  private double workedHours;
 
- /**
- * Constructor rút gọn: Nhận thông tin cơ bản, đơn giá giờ và số giờ làm; phòng ban mặc định "Unassigned".
- * 
- * @param employeeId Mã nhân sự.
- * @param fullName Họ tên nhân sự.
- * @param hourlyRate Đơn giá giờ làm việc (> 0).
- * @param workedHours Số giờ làm việc trong tháng (0 đến 250).
- */
  public HourlyEmployee(String employeeId, String fullName, double hourlyRate, double workedHours) {
  this(employeeId, fullName, "Unassigned", hourlyRate, workedHours);
  }
 
- /**
- * Constructor đầy đủ thông tin nhân viên theo giờ.
- * 
- * @param employeeId Mã nhân sự.
- * @param fullName Họ tên nhân sự.
- * @param department Phòng ban công tác.
- * @param hourlyRate Đơn giá giờ làm việc (> 0).
- * @param workedHours Số giờ làm việc trong tháng (0 đến 250).
- */
  public HourlyEmployee(String employeeId, String fullName, String department,
  double hourlyRate, double workedHours) {
  super(employeeId, fullName, department);
