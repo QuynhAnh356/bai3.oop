@@ -4,10 +4,7 @@
 /****************/
 package payroll;
 
-/**
- * Lớp đại diện cho nhân viên kinh doanh (SalesEmployee).
- * Thu nhập bao gồm lương cơ bản, hoa hồng dựa trên doanh số bán hàng và thưởng.
- */
+
 public class SalesEmployee extends Employee {
  public static final double MAX_COMMISSION_RATE = 0.3;
 
@@ -15,28 +12,12 @@ public class SalesEmployee extends Employee {
  private double salesRevenue;
  private double commissionRate;
 
- /**
- * Constructor rút gọn: Nhận thông tin cơ bản, lương cơ bản và tỷ lệ hoa hồng; doanh số ban đầu = 0.
- * 
- * @param employeeId Mã nhân sự.
- * @param fullName Họ tên nhân sự.
- * @param baseSalary Lương cơ bản (>= 0).
- * @param commissionRate Tỷ lệ hoa hồng (0 đến 0.3).
- */
+
  public SalesEmployee(String employeeId, String fullName, double baseSalary, double commissionRate) {
  this(employeeId, fullName, "Unassigned", baseSalary, 0.0, commissionRate);
  }
 
- /**
- * Constructor đầy đủ thông tin nhân viên kinh doanh.
- * 
- * @param employeeId Mã nhân sự.
- * @param fullName Họ tên nhân sự.
- * @param department Phòng ban công tác.
- * @param baseSalary Lương cơ bản (>= 0).
- * @param salesRevenue Doanh số bán hàng (>= 0).
- * @param commissionRate Tỷ lệ hoa hồng (0 đến 0.3).
- */
+
  public SalesEmployee(String employeeId, String fullName, String department,
  double baseSalary, double salesRevenue, double commissionRate) {
  super(employeeId, fullName, department);
