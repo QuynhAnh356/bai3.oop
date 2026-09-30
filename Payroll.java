@@ -8,20 +8,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * Lớp quản lý bảng lương (Payroll) cho một kỳ lương cụ thể của doanh nghiệp.
- * Payroll KHÔNG kế thừa từ Employee (quan hệ 'has-a' chứ không phải 'is-a').
- * Toàn bộ tính toán lương đều được gọi đa hình thông qua lớp cơ sở Employee.
- */
+
 public class Payroll {
  private String period;
  private final List<Employee> employees = new ArrayList<>();
 
- /**
- * Khởi tạo bảng lương cho một kỳ lương xác định.
- * 
- * @param period Kỳ lương (ví dụ: "2026-09", không được rỗng).
- */
  public Payroll(String period) {
  setPeriod(period);
  }
@@ -41,14 +32,6 @@ public class Payroll {
  return Collections.unmodifiableList(employees);
  }
 
- /**
- * Thêm một nhân sự vào bảng lương.
- * Ràng buộc: Không được thêm trùng mã nhân sự trong cùng một kỳ lương.
- * 
- * @param employee Đối tượng nhân sự cần thêm.
- * @return true nếu thêm thành công.
- * @throws IllegalArgumentException nếu nhân sự rỗng hoặc mã nhân sự đã tồn tại.
- */
  public boolean addEmployee(Employee employee) {
  if (employee == null) {
  throw new IllegalArgumentException("Lỗi: Không thể thêm nhân sự có giá trị null vào bảng lương.");
@@ -61,12 +44,7 @@ public class Payroll {
  return employees.add(employee);
  }
 
- /**
- * Tìm kiếm nhân sự trong bảng lương theo mã nhân sự.
- * 
- * @param employeeId Mã nhân sự cần tìm.
- * @return Đối tượng Employee nếu tìm thấy, ngược lại trả về null.
- */
+
  public Employee findEmployee(String employeeId) {
  if (employeeId == null || employeeId.trim().isEmpty()) {
  return null;
@@ -79,13 +57,6 @@ public class Payroll {
  return null;
  }
 
- /**
- * Tính tổng chi phí lương của toàn bộ nhân sự trong kỳ lương.
- * Áp dụng tính đa hình: Gọi phương thức calculateGrossPay() trên từng đối tượng Employee.
- * Tuyệt đối không dùng chuỗi if/else hay switch-case để kiểm tra loại nhân sự.
- * 
- * @return Tổng chi phí bảng lương (VNĐ).
- */
  public double calculateTotalPayroll() {
  double total = 0.0;
  for (Employee emp : employees) {
@@ -95,12 +66,6 @@ public class Payroll {
  return total;
  }
 
- /**
- * Tính tổng chi phí lương của một phòng ban cụ thể.
- * 
- * @param department Tên phòng ban cần tổng hợp.
- * @return Tổng lương của phòng ban đó (VNĐ).
- */
  public double calculatePayrollByDepartment(String department) {
  if (department == null || department.trim().isEmpty()) {
  return 0.0;
@@ -114,12 +79,6 @@ public class Payroll {
  return deptTotal;
  }
 
- /**
- * Tìm nhân sự có thu nhập trước khấu trừ cao nhất trong kỳ.
- * Xử lý an toàn khi danh sách nhân sự rỗng.
- * 
- * @return Đối tượng Employee có thu nhập cao nhất, hoặc null nếu danh sách rỗng.
- */
  public Employee findHighestPaidEmployee() {
  if (employees.isEmpty()) {
  return null;
