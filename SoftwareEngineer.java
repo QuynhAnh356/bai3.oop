@@ -4,34 +4,17 @@
 /****************/
 package projectteam;
 
-/**
- * Lớp đại diện cho Kỹ sư phần mềm (SoftwareEngineer), kế thừa từ Employee.
- * Bổ sung thông tin về ngôn ngữ lập trình chính và phụ cấp kỹ thuật.
- */
+
 public class SoftwareEngineer extends Employee {
  private String primaryLanguage;
  private double technicalAllowance;
 
- /**
- * Constructor rút gọn: Khởi tạo với ngôn ngữ chính, lương cơ bản và phụ cấp mặc định = 0.
- * 
- * @param id Mã nhân sự.
- * @param fullName Họ tên.
- * @param primaryLanguage Ngôn ngữ lập trình chính (không được rỗng).
- */
+
  public SoftwareEngineer(String id, String fullName, String primaryLanguage) {
  this(id, fullName, 0.0, primaryLanguage, 0.0);
  }
 
- /**
- * Constructor đầy đủ 5 tham số của SoftwareEngineer.
- * 
- * @param id Mã nhân sự.
- * @param fullName Họ tên.
- * @param baseSalary Lương cơ bản (>= 0).
- * @param primaryLanguage Ngôn ngữ lập trình chính (không được rỗng).
- * @param technicalAllowance Phụ cấp kỹ thuật (>= 0).
- */
+
  public SoftwareEngineer(String id, String fullName, double baseSalary,
  String primaryLanguage, double technicalAllowance) {
  super(id, fullName, baseSalary);
