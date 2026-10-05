@@ -8,25 +8,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * Lớp đại diện cho một Nhóm Dự Án (ProjectTeam).
- * Thiết kế theo mô hình quan hệ Kết tập (Aggregation):
- * - Nhóm dự án CHỈ LIÊN KẾT (không sở hữu độc quyền) đến các nhân sự và trưởng nhóm.
- * - Một nhân sự có thể tồn tại độc lập với nhóm và có thể tham gia nhiều nhóm dự án khác nhau.
- * - Khi nhóm dự án bị giải tán/hủy, các đối tượng nhân sự bên trong KHÔNG bị hủy theo.
- */
+
 public class ProjectTeam {
  private String projectCode;
  private String projectName;
  private Employee leader; // Liên kết không sở hữu đến trưởng nhóm
  private final List<Employee> members = new ArrayList<>(); // Danh sách liên kết không sở hữu
 
- /**
- * Constructor nạp chồng phiên bản 1: Tạo nhóm dự án chưa có trưởng nhóm.
- * 
- * @param projectCode Mã dự án (không được rỗng).
- * @param projectName Tên dự án (không được rỗng).
- */
  public ProjectTeam(String projectCode, String projectName) {
  setProjectCode(projectCode);
  setProjectName(projectName);
@@ -35,13 +23,7 @@ public class ProjectTeam {
  this.projectCode, this.projectName);
  }
 
- /**
- * Constructor nạp chồng phiên bản 2: Thiết lập trưởng nhóm và tự động đưa trưởng nhóm vào danh sách thành viên.
- * 
- * @param projectCode Mã dự án.
- * @param projectName Tên dự án.
- * @param leader Trưởng nhóm (không được null).
- */
+
  public ProjectTeam(String projectCode, String projectName, Employee leader) {
  setProjectCode(projectCode);
  setProjectName(projectName);
@@ -88,28 +70,11 @@ public class ProjectTeam {
 
  // ================= NẠP CHỒNG PHƯƠNG THỨC addMember() =================
 
- /**
- * Nạp chồng phiên bản 1: Thêm một nhân sự thông thường vào nhóm dự án.
- * Bất biến: Không có hai thành viên cùng mã trong một nhóm.
- * 
- * @param employee Nhân sự cần thêm.
- * @return true nếu thêm thành công, false nếu bị trùng hoặc không hợp lệ.
- */
+
  public boolean addMember(Employee employee) {
  return addMember(employee, false);
  }
 
- /**
- * Nạp chồng phiên bản 2: Thêm nhân sự vào nhóm và có tùy chọn bổ nhiệm làm trưởng nhóm ngay.
- * Quy tắc:
- * - Không thêm trùng nhân sự (dựa trên mã id).
- * - Nếu makeLeader == true, nhân sự được thêm và trở thành trưởng nhóm mới.
- * - Trưởng nhóm cũ vẫn là thành viên của nhóm.
- * 
- * @param employee Nhân sự cần thêm.
- * @param makeLeader true nếu muốn bổ nhiệm làm trưởng nhóm mới.
- * @return true nếu thao tác thành công.
- */
  public boolean addMember(Employee employee, boolean makeLeader) {
  if (employee == null) {
  System.out.println(" [Từ chối] Đối tượng nhân sự là null.");
@@ -199,13 +164,7 @@ public class ProjectTeam {
  return false;
  }
 
- /**
- * Bổ nhiệm trưởng nhóm mới.
- * Ràng buộc: Trưởng nhóm mới phải được thêm vào nhóm nếu chưa phải là thành viên.
- * 
- * @param newLeader Trưởng nhóm mới.
- * @return true nếu đổi thành công.
- */
+
  public boolean changeLeader(Employee newLeader) {
  if (newLeader == null) {
  throw new IllegalArgumentException("Lỗi: Trưởng nhóm mới không được là null.");
@@ -222,12 +181,7 @@ public class ProjectTeam {
  return true;
  }
 
- /**
- * Tính tổng chi phí nhân sự hàng tháng cho nhóm dự án.
- * Sử dụng lời gọi đa hình: gọi emp.calculateMonthlyCost() trên từng thành viên.
- * 
- * @return Tổng chi phí hàng tháng (VNĐ).
- */
+
  public double calculateTotalMonthlyCost() {
  double total = 0.0;
  for (Employee emp : members) {
@@ -261,11 +215,7 @@ public class ProjectTeam {
  System.out.println("==========================================================================================\n");
  }
 
- /**
- * Giải tán / Hủy nhóm dự án (Mô phỏng quan hệ kết tập Aggregation).
- * Chỉ giải phóng danh sách liên kết nội bộ của nhóm dự án.
- * Tuyệt đối KHÔNG HỦY các đối tượng Employee độc lập bên ngoài.
- */
+
  public void disbandTeam() {
  System.out.printf("[Hủy nhóm] Nhóm dự án [%s - %s] đã được giải tán. Toàn bộ liên kết thành viên được giải phóng.\n",
  projectCode, projectName);
