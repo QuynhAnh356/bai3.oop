@@ -4,10 +4,6 @@
 /****************/
 package projectteam;
 
-/**
- * Chương trình kiểm thử cho Bài tập: NHÓM DỰ ÁN VÀ NHÂN SỰ .
- * Thực thi chính xác toàn bộ kịch bản 15 bước theo yêu cầu của đề bài.
- */
 public class Main {
  public static void main(String[] args) {
  System.out.println("==========================================================================");
