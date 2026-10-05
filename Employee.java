@@ -4,41 +4,22 @@
 /****************/
 package projectteam;
 
-/**
- * Lớp đại diện cho một nhân sự thông thường trong tổ chức.
- * Được thiết kế để quản lý độc lập và có thể tham gia vào nhiều dự án khác nhau (Aggregation).
- */
+
 public class Employee {
  private String id;
  private String fullName;
  private double baseSalary;
 
- /**
- * Constructor mặc định:
- * id = "UNKNOWN", fullName = "Unnamed employee", baseSalary = 0
- */
  public Employee() {
  this("UNKNOWN", "Unnamed employee", 0.0);
  }
 
- /**
- * Constructor 2 tham số: Khởi tạo với mã và họ tên, lương cơ bản mặc định = 0.
- * Áp dụng constructor ủy quyền.
- * 
- * @param id Mã nhân sự (không được rỗng).
- * @param fullName Họ tên nhân sự (không được rỗng).
- */
+
  public Employee(String id, String fullName) {
  this(id, fullName, 0.0);
  }
 
- /**
- * Constructor đầy đủ 3 tham số.
- * 
- * @param id Mã nhân sự (không được rỗng).
- * @param fullName Họ tên nhân sự (không được rỗng).
- * @param baseSalary Lương cơ bản (>= 0).
- */
+
  public Employee(String id, String fullName, double baseSalary) {
  setId(id);
  setFullName(fullName);
@@ -83,11 +64,7 @@ public class Employee {
 
  // ================= NẠP CHỒNG PHƯƠNG THỨC increaseSalary() =================
 
- /**
- * Nạp chồng phiên bản 1: Tăng lương cơ bản theo một số tiền cố định.
- * 
- * @param amount Số tiền tăng (phải > 0).
- */
+
  public void increaseSalary(double amount) {
  if (amount <= 0) {
  throw new IllegalArgumentException("Lỗi quy ước: Giá trị tăng lương phải dương. Nhận: " + amount);
@@ -97,13 +74,6 @@ public class Employee {
  id, amount, baseSalary);
  }
 
- /**
- * Nạp chồng phiên bản 2: Tăng lương theo tỷ lệ phần trăm (nếu byPercentage == true)
- * hoặc theo số tiền cố định (nếu byPercentage == false).
- * 
- * @param value Giá trị tăng (phải > 0).
- * @param byPercentage true nếu tính theo %, false nếu tính theo số tiền cố định.
- */
  public void increaseSalary(double value, boolean byPercentage) {
  if (value <= 0) {
  throw new IllegalArgumentException("Lỗi quy ước: Giá trị tăng lương phải dương. Nhận: " + value);
@@ -120,12 +90,6 @@ public class Employee {
 
  // ================= CÁC PHƯƠNG THỨC ĐA HÌNH (VIRTUAL TRONG JAVA) =================
 
- /**
- * Tính tổng chi phí nhân sự hàng tháng. Mặc định bằng lương cơ bản.
- * Phương thức ảo (Virtual), lớp con có thể ghi đè.
- * 
- * @return Chi phí hàng tháng (VNĐ).
- */
  public double calculateMonthlyCost() {
  return baseSalary;
  }
